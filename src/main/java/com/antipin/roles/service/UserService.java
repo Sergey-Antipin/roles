@@ -29,7 +29,6 @@ public class UserService implements UserDetailsService {
         User user = repository
                 .findUserByUsername(username)
                 .orElseThrow(() -> new UserNotFoundException(username));
-        UserPrincipal up = new UserPrincipal(user);
         return new UserPrincipal(user);
     }
 
